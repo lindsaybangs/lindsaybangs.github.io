@@ -1,0 +1,23 @@
+{%- assign all_tags = site.posts | map: "tags" | uniq | sort -%}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        </a>
+
+        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            {% for item in all_tags %}
+                <a class="navbar-item" href="{{ item }}">{{ item }}</a>
+            {% endfor %}
+        </div>
+        <div class="navbar-end"></div>
+    </div>
+</nav>

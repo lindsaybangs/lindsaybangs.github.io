@@ -1,0 +1,16 @@
+{% for post in site.posts %}
+    {% assign mod4 = forloop.index | modulo: 4 %}
+    {% if mod4 == 1 %}
+        <div class="tile is-ancestor">
+    {% endif %}
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="title">{{ post.title }}</p>
+            {{ post.date | date_to_long_string: "ordinal", "US" }}
+            <div class="content">{{ post.excerpt }}</div>          
+        </article>
+    </div>
+    {% if mod4 == 0 %}
+        </div>
+    {% endif %}
+{% endfor %}
